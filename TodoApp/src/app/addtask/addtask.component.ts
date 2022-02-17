@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoServiceService } from '../to-do-service.service';
 import { Task } from '../task';
-import { Tasks } from '../checklist';
 import { Observable, Subject } from 'rxjs';
 
 
