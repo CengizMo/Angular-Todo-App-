@@ -14,6 +14,8 @@ import { ToDoCheckButtonComponent } from './to-do-check-button/to-do-check-butto
 import { BackToDoCheckComponent } from './back-to-do-check/back-to-do-check.component';
 import { AddtaskComponent } from './addtask/addtask.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+    InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

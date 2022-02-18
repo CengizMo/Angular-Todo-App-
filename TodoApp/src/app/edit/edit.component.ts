@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  tasks: Task[] = [];
+  tasklist: Task[] = [];
 
   constructor(private toDoServiceService: ToDoServiceService) { }
 
@@ -19,7 +19,7 @@ export class EditComponent implements OnInit {
 
   getTasks(): void {
     this.toDoServiceService.getTasks()
-    .subscribe(tasks => this.tasks = tasks);
+    .subscribe(tasks => this.tasklist = tasks);
   }
 
   add(name: string): void {
@@ -27,12 +27,12 @@ export class EditComponent implements OnInit {
     if (!name) { return; }
     this.toDoServiceService.addTask({ name } as Task)
       .subscribe(task => {
-        this.tasks.push(task);
+        this.tasklist.push(task);
       });
   }
 
   delete(task: Task): void {
-    this.tasks = this.tasks.filter(t => t !== task);
+    this.tasklist = this.tasklist.filter(t => t !== task);
     this.toDoServiceService.deleteTask(task.name).subscribe();
   }
 

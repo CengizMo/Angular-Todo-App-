@@ -1,21 +1,27 @@
-<div *ngFor="let task of tasks">
+<ul class="tasklist">
+  <li id="tasks" *ngFor="let task of tasklist">
     <button>
         <div>
-            {{task.name}}
+          <span class="badge">{{task.id}}</span>{{task.name}}
+          <button type="button" class="delete" title="delete task"
+          (click)="delete(task)">x</button> 
         </div>
     </button>
-</div>
-  
+  </li>
+</ul>
+  <div>
+    <label for="new-task"> Task name: </label>
+          <input id="new-task" #taskName />
+
+          <button type="button" class="add-button" (click)="add(taskName.value); taskName.value=''">
+          Add Task
+          </button>
+    </div>
+
   <!-- <div class="Task">
     <div *ngFor="let task of tasks">
         {{task.name}}
     </div>
-    <label for="new-task"> Task name: </label>
-    <input id="new-task" #taskName />
-     (click) passes input value to add() and then clears the input
-    <button type="button" class="add-button" (click)="add(taskName.value); taskName.value=''">
-      Add Task
-    </button>
   </div> -->
 <app-back-to-do-check></app-back-to-do-check>
 

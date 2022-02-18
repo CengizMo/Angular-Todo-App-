@@ -1,2 +1,13 @@
 <app-back-overview></app-back-overview>
+<ul class="tasklist">
+    <li id="tasks" *ngFor="let task of tasklist">
+      <button>
+          <div>
+            <span class="badge">{{task.id}}</span>{{task.name}}
+            <button type="button" class="delete" title="delete task"
+            (click)="checkTask(task)"><div id="tick-mark"></div></button> 
+          </div>
+      </button>
+    </li>
+  </ul>
 <app-to-do-check-button></app-to-do-check-button>
