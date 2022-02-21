@@ -6,13 +6,10 @@
 .Task{
     margin-top: 20%;
 }
-button.delete {
+#button.tick-button {
     display: inline-block;
     color: white;
-    line-height: 1em;
     position: relative;
-    height: 35px;
-    min-width: 16px;
     border-radius: 4px 0 0 4px;
 }
 
@@ -36,16 +33,9 @@ button.delete {
   }
 
 .badge {
-    display: inline-block;
-    font-size: small;
     color: white;
-    padding: 1em 0.7em 0 0.7em;
+    padding: 1.3em 0.7em 0 0.7em;
     background-color: #FF6F6F;
-    line-height: 0.3em;
-    position: relative;
-    height: 1.8em;
-    min-width: 16px;
-    text-align: center;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
@@ -54,6 +44,7 @@ button.delete {
     display: inline-block;
     width: 30px;
     height: 30px;
+    visibility: hidden;
 }
 
 #tick-mark::before {

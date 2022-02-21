@@ -15,4 +15,8 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reload(): void {
+    console.log('RELOAD!');
+  }
+
 }

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-overview-button',
-  templateUrl: './overview-button.component.html',
-  styleUrls: ['./overview-button.component.css']
+  selector: 'app-button',
+  templateUrl: './button.component.html',
+  styleUrls: ['./button.component.css']
 })
-export class OverviewButtonComponent implements OnInit {
+export class ButtonComponent implements OnInit {
 
   @Input()
   public text: string = 'I am a button!';
@@ -24,6 +24,8 @@ export class OverviewButtonComponent implements OnInit {
   reactOnClick(event: Event) {
     if(this.link === '') { 
       this.onClick.emit(event);
+    } else {
+        console.warn('You can not bind a link & click listener at the same time!');
     }
   }
 
