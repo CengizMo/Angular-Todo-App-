@@ -1,8 +1,17 @@
-<div class="item">
-    <div class="badge">
+<div *ngIf="!editMode" class="item" [ngClass]="{'checked': checked && !editMode}">
+    <div class="badge" (click)="enableEditMode()">
+        <p>{{index}}</p>
+    </div>
+    <div class="content" (click)="checkItem()">
+        <p>{{text}}</p>
+    </div>
+</div>
+
+<div *ngIf="editMode" class="item" [ngClass]="{'checked': checked && !editMode}">
+    <div class="badge edit">
         <p>{{index}}</p>
     </div>
     <div class="content">
-        <p>{{text}}</p>
+        <input id="editTodo" #editTodo (blur)="leaveEditMode()" type="text" [placeholder]="text" (change)="saveText(editTodo.value)" />
     </div>
 </div>

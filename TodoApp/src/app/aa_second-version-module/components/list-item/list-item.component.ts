@@ -1,4 +1,4 @@
-import { Component,Input } from "@angular/core";
+import { Component,Input, ViewChild } from "@angular/core";
 
 @Component({
     selector: 'app-list-item',
@@ -8,14 +8,35 @@ import { Component,Input } from "@angular/core";
 export class ListItemComponent {
     
     @Input()
-    public text: string = 'Ich bin ein sehr sehr sehr langer Text!';
+    public text: string = 'Lorem Ipsum Dolar Sit Amet Dolar Amet Sit Lorem';
 
     @Input()
-    public index: number = 0;
+    public index: number = -1;
 
+    @Input()
+    public checked: boolean = false;
 
+    @Input()
+    public editMode: boolean = false;
 
     constructor(){}
 
-    
+    public checkItem(): void {
+        this.checked = !this.checked;
+    }
+
+    public enableEditMode(): void {
+        this.editMode = true;
+        setTimeout(() => {
+            document.getElementById('editTodo')?.focus();
+        }, 100);
+    }
+
+    public leaveEditMode(): void {
+        this.editMode = false;
+    }
+
+    public saveText(value: string): void {
+        this.text = value;
+    }
 }
