@@ -1,4 +1,6 @@
-import { Component,Input, ViewChild } from "@angular/core";
+import { Component,EventEmitter,Input, Output, ViewChild } from "@angular/core";
+import { TodoItem } from "../../model/todo.item";
+import { todoItems } from "../../model/todo.item.list";
 
 @Component({
     selector: 'app-list-item',
@@ -19,10 +21,14 @@ export class ListItemComponent {
     @Input()
     public editMode: boolean = false;
 
+    @Output()
+    public change: EventEmitter<TodoItem> = new EventEmitter();
+
     constructor(){}
 
     public checkItem(): void {
         this.checked = !this.checked;
+        this.change.emit();
     }
 
     public enableEditMode(): void {

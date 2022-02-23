@@ -1,7 +1,11 @@
 <p class="subline">Heute schon Erledigt</p>
 
 <app-list>
-    <app-list-item></app-list-item>
+    <div class="openTodos" >
+    <app-list-item *ngFor="let todo of completedTodoItems$ | async" [index]="todo.index" [text]="todo.text" [checked]="todo.checked"></app-list-item>
+    </div>
+    <app-list-item *ngFor="let todo of uncompletedTodoItems$ | async" [index]="todo.index" [text]="todo.text" [checked]="todo.checked" (change)="change(todo)"></app-list-item>
+    
 </app-list>
 
 <p class="subline">Möchtest du die <br> To-do übersicht ansehen?</p>
