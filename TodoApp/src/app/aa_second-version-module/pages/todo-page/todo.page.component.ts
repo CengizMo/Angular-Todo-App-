@@ -31,10 +31,12 @@ export class TodoPageComponent {
         const index = todos.findIndex(item => item.index === todo.index);
         if(index !== -1) {
             todos.splice(index, 1);
+        } else {
+            todo.index = todos.length;
         }
 
         todos.push(todo);
-        console.log(todo)
+        console.log(todo);
         this.data.todoItems$.next(todos);
     }
 }

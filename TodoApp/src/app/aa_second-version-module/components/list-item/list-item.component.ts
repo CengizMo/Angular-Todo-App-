@@ -14,6 +14,9 @@ export class ListItemComponent {
     @Input()
     public item: ListItemModel = new TodoItem();
 
+    @Input()
+    public disabled: boolean = false;
+
     public editMode: boolean = false;
 
     public checked: boolean = false;
@@ -28,15 +31,18 @@ export class ListItemComponent {
     constructor(){}
 
     public checkItem(): void {
+        if(this.disabled) {
+            this.editMode = true;
+            this.focusInputFiled();
+            return;
+        }
         this.item.checked = !this.item?.checked;
         this.change.emit(this.item);
     }
 
     public enableEditMode(): void {
         this.editMode = true;
-        setTimeout(() => {
-            document.getElementById('editTodo')?.focus();
-        }, 100);
+        this.focusInputFiled();
     }
 
     public leaveEditMode(): void {
@@ -46,5 +52,11 @@ export class ListItemComponent {
     public saveText(value: string): void {
         this.item.text = value;
         this.change.emit(this.item);
+    }
+
+    private focusInputFiled(): void {
+        setTimeout(() => {
+            document.getElementById('editTodo')?.focus();
+        }, 100);
     }
 }

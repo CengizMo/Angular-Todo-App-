@@ -6,6 +6,8 @@
     </div>
     <app-list-item *ngFor="let todo of uncompletedTodoItems$ | async" [item]="todo" (change)="change($event)"></app-list-item>
     
+    <app-list-item [disabled]="true" (change)="change($event)"></app-list-item>
+    
 </app-list>
 
 <p class="subline">Möchtest du die <br> To-do übersicht ansehen?</p>
