@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { filter, map } from "rxjs/operators";
+import { ListItemModel } from "../../model/list.item.model";
 import { TodoItem } from "../../model/todo.item";
 import { DataService } from "../../services/data.service";
 
@@ -14,16 +15,18 @@ export class TodoPageComponent {
     public openTodos = this.data.getTodoItems().filter(todo => !todo.checked);
 
     public completedTodoItems$ = this.data.todoItems$.pipe(
-        map(todos => todos.filter(todo => todo.checked))
-    );
+        map(todos => todos.filter(todo => todo.checked)),
+        map(todos => todos.sort((a, b) => {return a.index < b.index ? -1 : 1})
+        ));
 
     public uncompletedTodoItems$ = this.data.todoItems$.pipe(
-        map(todos => todos.filter(todo => !todo.checked))
-    );
+        map(todos => todos.filter(todo => !todo.checked)),
+        map(todos => todos.sort((a, b) => {return a.index < b.index ? -1 : 1})
+        ));
 
     constructor(public data: DataService) {}
 
-    public change(todo: TodoItem): void {
+    public change(todo: ListItemModel): void {
         const todos = this.data.todoItems$.getValue();
         const index = todos.findIndex(item => item.index === todo.index);
         if(index !== -1) {
@@ -31,6 +34,7 @@ export class TodoPageComponent {
         }
 
         todos.push(todo);
+        console.log(todo)
         this.data.todoItems$.next(todos);
     }
 }

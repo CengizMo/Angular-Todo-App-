@@ -2,9 +2,9 @@
 
 <app-list>
     <div class="openTodos" >
-    <app-list-item *ngFor="let todo of completedTodoItems$ | async" [index]="todo.index" [text]="todo.text" [checked]="todo.checked"></app-list-item>
+    <app-list-item *ngFor="let todo of completedTodoItems$ | async" [item]="todo" (change)="change($event)"></app-list-item>
     </div>
-    <app-list-item *ngFor="let todo of uncompletedTodoItems$ | async" [index]="todo.index" [text]="todo.text" [checked]="todo.checked" (change)="change(todo)"></app-list-item>
+    <app-list-item *ngFor="let todo of uncompletedTodoItems$ | async" [item]="todo" (change)="change($event)"></app-list-item>
     
 </app-list>
 
