@@ -26,7 +26,7 @@ export class ListItemComponent {
     public index: number = -1;
 
     @Output()
-    public change: EventEmitter<ListItemModel> = new EventEmitter<ListItemModel>();
+    public changing: EventEmitter<ListItemModel> = new EventEmitter<ListItemModel>();
 
     constructor(){}
 
@@ -37,7 +37,7 @@ export class ListItemComponent {
             return;
         }
         this.item.checked = !this.item?.checked;
-        this.change.emit(this.item);
+        this.changing.emit(this.item);
     }
 
     public enableEditMode(): void {
@@ -51,7 +51,11 @@ export class ListItemComponent {
 
     public saveText(value: string): void {
         this.item.text = value;
-        this.change.emit(this.item);
+        this.changing.emit(this.item);
+        if(todoItems.length == this.item.index)
+        {
+            this.item = new TodoItem();
+        }
     }
 
     private focusInputFiled(): void {

@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { filter, map } from "rxjs/operators";
+import { ListItemComponent } from "../../components/list-item/list-item.component";
 import { ListItemModel } from "../../model/list.item.model";
 import { TodoItem } from "../../model/todo.item";
 import { DataService } from "../../services/data.service";
@@ -31,12 +32,13 @@ export class TodoPageComponent {
         const index = todos.findIndex(item => item.index === todo.index);
         if(index !== -1) {
             todos.splice(index, 1);
-        } else {
-            todo.index = todos.length;
+        } 
+        else {   
+           todo.index = todos.length;
         }
+            todos.push(todo);
+            console.log(todo);
+            this.data.todoItems$.next(todos);
 
-        todos.push(todo);
-        console.log(todo);
-        this.data.todoItems$.next(todos);
     }
 }

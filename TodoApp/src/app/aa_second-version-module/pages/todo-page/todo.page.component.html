@@ -2,11 +2,11 @@
 
 <app-list>
     <div class="openTodos" >
-    <app-list-item *ngFor="let todo of completedTodoItems$ | async" [item]="todo" (change)="change($event)"></app-list-item>
+    <app-list-item *ngFor="let todo of completedTodoItems$ | async" [item]="todo" (changing)="change($event)"></app-list-item>
     </div>
-    <app-list-item *ngFor="let todo of uncompletedTodoItems$ | async" [item]="todo" (change)="change($event)"></app-list-item>
+    <app-list-item *ngFor="let todo of uncompletedTodoItems$ | async" [item]="todo" (changing)="change($event)"></app-list-item>
     
-    <app-list-item [disabled]="true" (change)="change($event)"></app-list-item>
+    <app-list-item [disabled]="true" (changing)="change($event)"></app-list-item>
     
 </app-list>
 
