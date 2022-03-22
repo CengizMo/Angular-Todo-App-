@@ -51,9 +51,9 @@ export class ListItemComponent {
 
     public saveText(value: string): void {
         this.item.text = value;
-        this.changing.emit(this.item);
-        if(todoItems.length == this.item.index)
+        if(this.item.index == -1)
         {
+            this.changing.emit(this.item);
             this.item = new TodoItem();
         }
     }
