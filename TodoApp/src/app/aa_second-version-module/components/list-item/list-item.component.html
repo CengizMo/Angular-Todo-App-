@@ -5,6 +5,9 @@
     <div class="content" (click)="checkItem()">
         <p>{{item.text}}</p>
     </div>
+    <!-- <div class="delete" (click)="deleteItem()">
+        <p>X</p>
+    </div> -->
 </div>
 
 <div *ngIf="editMode" class="item" [ngClass]="{'checked': item.checked && !editMode}">

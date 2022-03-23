@@ -3,7 +3,6 @@ import { Component,EventEmitter,Input, OnInit, Output, ViewChild } from "@angula
 import { ListItemModel } from "../../model/list.item.model";
 import { TodoItem } from "../../model/todo.item";
 import { todoItems } from "../../model/todo.item.list";
-
 @Component({
     selector: 'app-list-item',
     templateUrl: './list-item.component.html',
@@ -13,6 +12,8 @@ export class ListItemComponent {
 
     @Input()
     public item: ListItemModel = new TodoItem();
+
+    public list = todoItems;
 
     @Input()
     public disabled: boolean = false;
@@ -56,6 +57,11 @@ export class ListItemComponent {
             this.changing.emit(this.item);
             this.item = new TodoItem();
         }
+    }
+
+    public deleteItem (): void{
+        console.log(this.index);
+        todoItems.splice(this.index, 1)
     }
 
     private focusInputFiled(): void {

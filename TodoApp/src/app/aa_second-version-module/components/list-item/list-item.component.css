@@ -59,6 +59,18 @@
     outline: none;
 }
 
+.delete p{
+    background: none;
+	color: inherit;
+	border: none;
+	align-items: center;
+    padding-right: 2px;
+	font-size: 1.3rem;
+	cursor: pointer;
+	outline: inherit;
+
+}
+
 /* .item{
     margin-top: 4%;
     width: 75%;
