@@ -60,8 +60,9 @@ export class ListItemComponent {
     }
 
     public deleteItem (): void{
-        console.log(this.index);
-        todoItems.splice(this.index, 1)
+        console.log(this.item.index);
+        todoItems.splice(this.item.index, 1)
+        this.changing.emit(this.item)
     }
 
     private focusInputFiled(): void {
