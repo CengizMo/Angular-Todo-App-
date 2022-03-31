@@ -13,7 +13,7 @@ export class ListItemComponent {
     @Input()
     public item: ListItemModel = new TodoItem();
 
-    public list = todoItems;
+    public checkNumber = todoItems.length;
 
     @Input()
     public disabled: boolean = false;
@@ -60,9 +60,8 @@ export class ListItemComponent {
     }
 
     public deleteItem (): void{
-        console.log(this.item.index);
-        todoItems.splice(this.item.index, 1)
-        this.changing.emit(this.item)
+        todoItems.splice(this.item.index, 1);
+        this.changing.next(this.item);
     }
 
     private focusInputFiled(): void {

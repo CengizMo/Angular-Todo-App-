@@ -15,6 +15,6 @@
         <p>{{item.index}}</p>
     </div>
     <div class="content">
-        <input id="editTodo" #editTodo (blur)="leaveEditMode()" type="text" [placeholder]="item.text" (change)="saveText(editTodo.value)" />
+        <input id="editTodo" #editTodo (blur)="leaveEditMode()" type="text" [placeholder]="item.text" (change)="saveText(editTodo.value)" (change)="deleteItem()"/>
     </div>
 </div>
