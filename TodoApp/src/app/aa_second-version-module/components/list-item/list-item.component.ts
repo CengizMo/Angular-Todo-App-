@@ -1,5 +1,5 @@
 import { noUndefined } from "@angular/compiler/src/util";
-import { Component,EventEmitter,Input, OnInit, Output, ViewChild } from "@angular/core";
+import { Component,EventEmitter,Input, IterableDiffers, OnInit, Output, ViewChild } from "@angular/core";
 import { ListItemModel } from "../../model/list.item.model";
 import { TodoItem } from "../../model/todo.item";
 import { todoItems } from "../../model/todo.item.list";
@@ -60,7 +60,8 @@ export class ListItemComponent {
     }
 
     public deleteItem (): void{
-        todoItems.splice(this.item.index, 1);
+        const deleted = todoItems.splice(this.item.index, 1);
+        console.log(todoItems)
         this.changing.next(this.item);
     }
 

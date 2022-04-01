@@ -43,9 +43,9 @@ export class TodoPageComponent implements AfterViewInit{
         let extraNumber =  todoItems.length - this.check;
     
         if(index !== -1) {
-            //todos.splice(index, 1);
-            //todos.push(todo);
-            //this.data.todoItems$.next(todos);
+            todos.splice(index, 1);
+            todos.push(todo);
+            this.data.todoItems$.next(todos);
         } 
         else if(extraNumber <= 0)
         {
@@ -53,9 +53,9 @@ export class TodoPageComponent implements AfterViewInit{
         }
         else
         {
-            //todo.index = todos.length;
-            //todos.push(todo);
-            //this.data.todoItems$.next(todos);
+            todo.index = todos.length;
+            todos.push(todo);
+            this.data.todoItems$.next(todos);
         }
            
         }
