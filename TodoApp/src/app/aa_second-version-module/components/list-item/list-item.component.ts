@@ -3,6 +3,7 @@ import { Component,EventEmitter,Input, IterableDiffers, OnInit, Output, ViewChil
 import { ListItemModel } from "../../model/list.item.model";
 import { TodoItem } from "../../model/todo.item";
 import { todoItems } from "../../model/todo.item.list";
+import { DataService } from "../../services/data.service";
 @Component({
     selector: 'app-list-item',
     templateUrl: './list-item.component.html',
@@ -59,10 +60,15 @@ export class ListItemComponent {
         }
     }
 
-    public deleteItem (): void{
-        const deleted = todoItems.splice(this.item.index, 1);
-        console.log(todoItems)
-        this.changing.next(this.item);
+    public deleteItem (delIndex: number): void{
+        this.item.index = delIndex;
+        console.log(this.item.index)
+        if(this.item.index != -1)
+        {
+            todoItems.splice(this.item.index, 1);
+            this.changing.emit(this.item);
+        }
+
     }
 
     private focusInputFiled(): void {

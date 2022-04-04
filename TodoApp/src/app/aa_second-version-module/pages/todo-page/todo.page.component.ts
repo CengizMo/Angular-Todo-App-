@@ -19,6 +19,7 @@ export class TodoPageComponent implements AfterViewInit{
     public checkedTodos = this.data.getTodoItems().filter(todo => todo.checked);
     public openTodos = this.data.getTodoItems().filter(todo => !todo.checked);
     public check = 0;
+    public delIndex = 0;
 
     public completedTodoItems$ = this.data.todoItems$.pipe(
         map(todos => todos.filter(todo => todo.checked)),
@@ -34,13 +35,14 @@ export class TodoPageComponent implements AfterViewInit{
 
     ngAfterViewInit(): void {
         this.check = this.number.checkNumber;
+        this.delIndex = this.number.item;
     }
 
     public change(todo: ListItemModel): void {
         const todos = this.data.todoItems$.getValue();
         const index = todos.findIndex(item => item.index === todo.index);
-
         let extraNumber =  todoItems.length - this.check;
+
     
         if(index !== -1) {
             todos.splice(index, 1);
