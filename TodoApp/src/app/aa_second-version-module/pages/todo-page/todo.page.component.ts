@@ -20,6 +20,7 @@ export class TodoPageComponent implements AfterViewInit{
     public openTodos = this.data.getTodoItems().filter(todo => !todo.checked);
     public check = 0;
     public delIndex = 0;
+    public page = "MainPage";
 
     public completedTodoItems$ = this.data.todoItems$.pipe(
         map(todos => todos.filter(todo => todo.checked)),
@@ -40,25 +41,31 @@ export class TodoPageComponent implements AfterViewInit{
 
     public change(todo: ListItemModel): void {
         const todos = this.data.todoItems$.getValue();
-        const index = todos.findIndex(item => item.index === todo.index);
+        let index = todos.findIndex(item => item.index === todo.index);
         let extraNumber =  todoItems.length - this.check;
 
-    
+        console.log(index);
+
         if(index !== -1) {
             todos.splice(index, 1);
             todos.push(todo);
             this.data.todoItems$.next(todos);
         } 
-        else if(extraNumber <= 0)
-        {
-            this.data.todoItems$.next(todos);
-        }
+
         else
         {
             todo.index = todos.length;
             todos.push(todo);
             this.data.todoItems$.next(todos);
         }
-           
         }
+
+        ChangeToMainPage(){
+            this.page = "MainPage";
+        }
+
+        ChangeToOverviewPage(){
+            this.page = "OverviewPage";
+        }
+
 }

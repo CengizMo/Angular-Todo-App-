@@ -21,3 +21,18 @@ p.subline {
 .openTodos{
     margin-bottom: 24px;
 }
+
+.uncompItems{
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 90%;
+}
+
+.btnBack{
+    margin-top: 30px;
+}
+
+.addInput{
+    width: 90%;
+    margin-left: 20px;
+}
