@@ -42,16 +42,17 @@ export class TodoPageComponent implements AfterViewInit{
     public change(todo: ListItemModel): void {
         const todos = this.data.todoItems$.getValue();
         let index = todos.findIndex(item => item.index === todo.index);
-        let extraNumber =  todoItems.length - this.check;
 
-        console.log(index);
-
-        if(index !== -1) {
+        if(todoItems.length < this.check)
+        {
+            this.check = todoItems.length;
+            this.data.todoItems$.next(todos);
+        }
+        else if(index !== -1) {
             todos.splice(index, 1);
             todos.push(todo);
             this.data.todoItems$.next(todos);
         } 
-
         else
         {
             todo.index = todos.length;

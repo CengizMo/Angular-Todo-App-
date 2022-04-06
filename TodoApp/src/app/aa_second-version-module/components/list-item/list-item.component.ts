@@ -57,17 +57,29 @@ export class ListItemComponent {
         {
             this.changing.emit(this.item);
             this.item = new TodoItem();
+            console.log(todoItems);
         }
     }
 
     public deleteItem (delIndex: number): void{
         this.item.index = delIndex;
-        console.log(this.item.index)
         if(this.item.index != -1)
         {
+            console.log(this.item.index);
             todoItems.splice(this.item.index, 1);
             this.changing.emit(this.item);
+            console.log(todoItems.length);
+            for(var x = 0; x < todoItems.length; x++)
+            {
+                if(x >= this.item.index)
+                {
+                    
+                    todoItems[x].index = todoItems[x].index - 1;
+                }
+                
+            }
         }
+
 
     }
 
