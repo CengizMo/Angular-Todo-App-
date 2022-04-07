@@ -9,14 +9,6 @@ import { DataService } from "../../services/data.service";
 })
 export class ListComponent {
 
-    // ngOnInit(){
-    //     this.getTodo();
-    // }
-
     constructor(private DataService: DataService){}
 
-    // getTodo(): void{
-    //     this.DataService.getTodoItems()
-    //     .subscribe(todoItem => this.todoItem = todoItem)
-    // }
 }

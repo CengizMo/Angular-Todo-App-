@@ -11,14 +11,12 @@ import { ListItemComponent } from "./components/list-item/list-item.component";
 
 @NgModule({
     declarations: [
-        // Components
         LayoutComponent,
         TopBarComponent,
         ButtonComponent,
         ListComponent,
         ListItemComponent,
 
-        // Pages
         TodoPageComponent
     ],
     imports: [

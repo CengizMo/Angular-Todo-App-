@@ -9,7 +9,6 @@
 }
 
 .item.checked {
-    /* visibility: hidden; */
     opacity: 0.6;
     text-decoration: line-through;
 }
@@ -69,26 +68,3 @@
 
 }
 
-/* .item{
-    margin-top: 4%;
-    width: 75%;
-    margin-left: 12%;
-    font-size: 13px;
-    border-width: 1px;
-    border-style: solid;
-    display: flex;
-}
-.badge{
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    background-color: #FF6F6F;
-    border-radius: 0px 4px 4px 0px;
-    color: white;
-}
-.content{
-    margin-left: 2%;
-    width: 85%;
-    display: flex;
-    justify-content: flex-start;
-} */
