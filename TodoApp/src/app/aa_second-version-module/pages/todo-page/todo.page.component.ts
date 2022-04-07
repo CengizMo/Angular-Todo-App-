@@ -45,20 +45,28 @@ export class TodoPageComponent implements AfterViewInit{
 
         if(todoItems.length < this.check)
         {
-            this.check = todoItems.length;
-            this.data.todoItems$.next(todos);
+            console.log("Ich bin im if")
         }
         else if(index !== -1) {
-            todos.splice(index, 1);
-            todos.push(todo);
-            this.data.todoItems$.next(todos);
+            if(todoItems[index].checked == false)
+            {
+                todoItems[index].checked = true;
+            }
+            else
+            {
+                todoItems[index].checked = false;
+            }
+
+            console.log("Ich bin im else if")
         } 
         else
         {
             todo.index = todos.length;
-            todos.push(todo);
-            this.data.todoItems$.next(todos);
+            todos.push(todo);   
+            console.log("Ich bin im else")
         }
+        this.check = todoItems.length
+        this.data.todoItems$.next(todos);
         }
 
         ChangeToMainPage(){

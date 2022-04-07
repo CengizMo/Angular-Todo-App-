@@ -38,7 +38,6 @@ export class ListItemComponent {
             this.focusInputFiled();
             return;
         }
-        this.item.checked = !this.item?.checked;
         this.changing.emit(this.item);
     }
 
@@ -63,24 +62,15 @@ export class ListItemComponent {
 
     public deleteItem (delIndex: number): void{
         this.item.index = delIndex;
-        if(this.item.index != -1)
-        {
-            console.log(this.item.index);
+        if (this.item.index != -1) {
             todoItems.splice(this.item.index, 1);
-            this.changing.emit(this.item);
-            console.log(todoItems.length);
-            for(var x = 0; x < todoItems.length; x++)
-            {
-                if(x >= this.item.index)
-                {
-                    
+            for (var x = 0; x < todoItems.length; x++) {
+                if (x >= this.item.index) {
                     todoItems[x].index = todoItems[x].index - 1;
                 }
-                
             }
+            this.changing.emit(this.item);
         }
-
-
     }
 
     private focusInputFiled(): void {
