@@ -1,0 +1,70 @@
+.item {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    border: 1px solid black;
+
+}
+
+.item.checked {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.badge {
+    max-width: 32px;
+    height: 32px;
+    width: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    background-color: #FF6F6F;
+    color: #ffffff;
+}
+
+.badge.edit {
+    background-color: #8ee745;
+}
+
+.content {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+
+    padding-left: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.content p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content input {
+    outline: none;
+}
+
+.delete p{
+    background: none;
+	color: inherit;
+	border: none;
+	align-items: center;
+    padding-right: 2px;
+	font-size: 1.3rem;
+	cursor: pointer;
+	outline: inherit;
+
+}
+

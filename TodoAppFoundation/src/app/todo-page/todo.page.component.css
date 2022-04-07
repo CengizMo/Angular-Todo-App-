@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 64px;
+    bottom: 23px;
+    left: 0px;
+    right: 0px;
+}
+
+p.subline {
+    font-size: 1.2rem;
+
+    font-weight: bold;
+    text-align: center;
+
+    margin: 12px 0px;
+}
+
+.openTodos{
+    margin-bottom: 24px;
+}
+
+.uncompItems{
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 90%;
+}
+
+.btnBack{
+    margin-top: 30px;
+}
+
+.addInput{
+    width: 90%;
+    margin-left: 20px;
+}
