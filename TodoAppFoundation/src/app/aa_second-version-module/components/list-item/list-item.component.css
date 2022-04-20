@@ -1,4 +1,4 @@
-.item {
+/* .item {
     display: flex;
     flex-direction: row;
 
@@ -6,14 +6,14 @@
 
     border: 1px solid black;
 
-}
+} */
 
-.item.checked {
+.grid-x.checked {
     opacity: 0.6;
     text-decoration: line-through;
 }
 
-.badge {
+ .badge {
     padding: 0px;
     border-radius: 0px;
     flex-shrink: 0;
@@ -28,17 +28,17 @@
 }
 
 .content {
-    display: flex;
     text-align: left;
-    flex-direction: row;
     align-items: center;
     flex-grow: 1;
 
-    padding-left: 12px;
-
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+}
+
+
+.content p{
+    padding-left: 8px;
 }
 
 p{
@@ -46,26 +46,27 @@ p{
     line-height: 32px;
 }
 
-.content p {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.content input {
-    outline: none;
-}
-
 .delete p{
-    background: none;
-	color: inherit;
-	border: none;
-	align-items: center;
-    padding-right: 2px;
 	font-size: 1.3rem;
-	cursor: pointer;
-	outline: inherit;
+    text-align: right;
+} 
 
+.grid-x{
+    margin-left: 6px;
+    display: flex;
+    border: 1px solid black;
+    width: 95%;
 }
 
+.grid-x>.small-2{
+    width: 22%;
+}
+
+#editTodo{
+    margin: 0 0 0 0;
+    height: 32px;
+}
+
+.grid-x>.small-10 {
+    width: 90.5%;
+}
