@@ -1,0 +1,26 @@
+<div *ngIf="!editMode" class="grid-x" [ngClass]="{'checked': item.checked && !editMode}">
+    <div class="badge" (click)="enableEditMode()">
+        <p>{{item.index}}</p>
+    </div>
+<div class="cell small-8">
+    <div class="content" (click)="checkItem()">
+        <p>{{item.text}}</p>
+    </div>
+</div>
+<div class="cell small-2">
+    <div class="delete" (click)="deleteItem(item.index)">
+        <p>X</p>
+    </div>
+</div>
+</div>
+
+<div *ngIf="editMode" class="grid-x" [ngClass]="{'checked': item.checked && !editMode}">
+    <div class="badge edit">
+        <p>{{item.index}}</p>
+    </div>
+<div class="cell small-10">
+    <div class="content">
+        <input id="editTodo" #editTodo (blur)="leaveEditMode()" type="text" [placeholder]="item.text" (change)="saveText(editTodo.value)"/>
+    </div>
+</div>
+</div>
