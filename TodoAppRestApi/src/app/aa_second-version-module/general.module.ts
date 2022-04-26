@@ -9,6 +9,7 @@ import { TodoPageComponent } from "./pages/todo-page/todo.page.component";
 import { ListComponent } from "./components/list/list.component";
 import { ListItemComponent } from "./components/list-item/list-item.component";
 import { TooltipModule } from "ngx-foundation";
+import { DataService } from "./services/data.service";
 
 @NgModule({
     declarations: [
@@ -27,7 +28,7 @@ import { TooltipModule } from "ngx-foundation";
         TooltipModule.forRoot()
     ],
     exports: [],
-    providers: [],
+    providers: [DataService],
     bootstrap: [LayoutComponent],
 })
 export class GeneralModule {}
