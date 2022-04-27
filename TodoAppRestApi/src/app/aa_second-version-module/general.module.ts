@@ -10,6 +10,9 @@ import { ListComponent } from "./components/list/list.component";
 import { ListItemComponent } from "./components/list-item/list-item.component";
 import { TooltipModule } from "ngx-foundation";
 import { DataService } from "./services/data.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { TodoAddComponent } from "./route.component/add-component/todo-add/todo-add.component";
+import { TodosComponent } from "./route.component/todos-component/todos/todos.component";
 
 @NgModule({
     declarations: [
@@ -18,6 +21,9 @@ import { DataService } from "./services/data.service";
         ButtonComponent,
         ListComponent,
         ListItemComponent,
+        TodoAddComponent,
+        TodosComponent,
+
 
         TodoPageComponent
     ],
@@ -25,6 +31,8 @@ import { DataService } from "./services/data.service";
         BrowserModule,
         GeneralRoutingModule,
         HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
         TooltipModule.forRoot()
     ],
     exports: [],
